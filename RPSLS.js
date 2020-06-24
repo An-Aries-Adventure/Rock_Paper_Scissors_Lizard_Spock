@@ -33,10 +33,72 @@ class Game{
         console.log("The player that wins best of 3 rounds, Wins the Game!")
     }
 
+    Logic(){  
+    if (playerChoice == "rock" & botPlayer == "rock"){
+        console.log("It's a Tie!");
+    }
+    else if (playerChoice == "rock" & botPlayer == "paper" || botPlayer == "spock"){
+        console.log("Sorry, you lost!");
+        this.botPlayer.score++;
+    }
+    else if (playerChoice == "rock" & botPlayer == "scissors" || botPlayer == "lizard"){
+        console.log("Yay, You won!");
+        this.playerOne.score++;
+    }
+    else if (playerChoice == "paper" & botPlayer == "rock" || botPlayer == "spock"){
+        console.log("Yay, You won!");
+        this.playerOne.score++;
+    }
+    else if (playerChoice == "paper" & botPlayer == "paper"){
+        console.log("It's a Tie!");
+    }
+    else if (playerChoice== "paper" & botPlayer == "scissors" || botPlayer == "lizard"){
+        console.log("Sorry, you lost!");
+        this.botPlayer.score++;
+    }
+    else if (playerChoice == "scissors"& botPlayer == "rock" || botPlayer == "spock"){
+        console.log("Sorry, you lost!");
+        this.botPlayer.score++;
+    }
+    else if (playerChoice == "scissors" & botPlayer == "paper" || botPlayer == "lizard"){
+        console.log("Yay, you won!");
+        this.playerOne.score++;
+    }
+    else if (playerChoice == "scissors" & botPlayer == "scissors"){
+        console.log("It's a Tie!");
+    }
+    else if (playerChoice == "lizard" & botPlayer == "paper" || botPlayer == "spock"){
+        console.log("Yay, you won!");
+        this.playerOne.score++;
+    }
+    else if (playerChoice == "lizard"& botPlayer == "rock" || botPlayer == "scissors"){
+        console.log("Sorry, you lost!");
+        this.botPlayer.score++;
+    }
+    else if (playerChoice == "lizard" & botPlayer == "lizard"){
+        console.log("It's a Tie!");
+    }
+    else if (playerChoice == "spock" & botPlayer == "rock" || botPlayer == "scissors"){
+            console.log("Yay, you won!");
+            this.playerOne.score++;
+    }
+    else if (playerChoice == "spock"& botPlayer == "paper" || botPlayer == "lizard"){
+            console.log("Sorry, you lost!");
+            this.botPlayer.score++;
+    }
+    else if (playerChoice == "spock" & botPlayer == "spock"){
+                console.log("It's a Tie!");
+    }
+     
+    else{
+        console.log("Please select again")
+    }
 
-
-
+    return gameResult
+    }
 }
+
+
 
 class Player{
     constructor(name){
@@ -57,6 +119,7 @@ class Player{
 
 class ComputerPlayer extends Player{
     constructor(name){
+        super();
         this.name = "CPU"
     }
 
@@ -78,77 +141,3 @@ let result = testComputerPlayer.chooseGesture();
 // let testResult = computerTest.computerGenerateRandomChoice()
 // console.log(testResult)
 
-pvcLogic(){
-    let gameResult
-        
-    if (playerChoice == "rock" & botPlayer == "rock"){
-        console.log("It's a Tie!");
-    }
-    
-    else if (playerChoice == "rock" & botPlayer == "paper"){
-        console.log("Sorry, you lost!");
-        this.botPlayer.score++;
-    }
-    
-    else if (playerChoice == "rock" & botPlayer == "scissors" || botPlayer == "lizard"){
-        console.log("Yay, You won!");
-        this.playerOne.score++;
-    }
-    else if (playerChoice == "paper" & botPlayer == "rock" || botPlayer == "spock"){
-        console.log("Yay, You won!");
-        this.playerOne.score++;
-    }
-
-    else if (playerChoice == "paper" & botPlayer == "paper"){
-        console.log("It's a Tie!");
-    }
-    else if (playerChoice== "paper" & botPlayer == "scissors"){
-        console.log("Sorry, you lost!");
-        this.botPlayer.score++;
-    }
-
-    else if (playerChoice == "scissors"& botPlayer == "rock"){
-        console.log("Sorry, you lost!");
-        this.botPlayer.score++;
-    }
-    else if (playerChoice == "scissors" & botPlayer == "paper"){
-        console.log("Yay, you won!");
-        this.playerOne.score++;
-    }
-    else if (playerChoice == "scissors" & botPlayer == "scissors"){
-        console.log("It's a Tie!");
-    }
-    else if (playerChoice == "lizard" & botPlayer == "paper" || botPlayer == "spock")
-        console.log("Yay, you won!");
-        this.playerOne.score++;
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    else{
-        console.log("Please select again")
-    }
-    
-    return gameResult
-}
