@@ -35,7 +35,7 @@ class Player{
     constructor(name){
 
         this.score = 0;
-        this.name = name;   
+        this.name = name;  
 
     }
 
@@ -49,11 +49,54 @@ class Player{
 
 }
 
+class ComputerPlayer extends Player{
+    constructor(name){
+
+    }
+}
+
+let gameCounter = 0
+
+let game = new Game()
+game.runGame()
+
+// let computerTest = new Player("carl");
+// let testResult = computerTest.computerGenerateRandomChoice()
+// console.log(testResult)
 
 
-// let game = new Game()
-// game.runGame()
+if (player == "rock" & cpu == "rock"){
+    console.log("It's a Tie!");
+}
+    
+else if (player == "rock" & cpu == "paper"){
+    console.log("Sorry, you lost!");
+}
+ 
+else if (player == "rock" & cpu == "scissors"){
+    console.log("Yay, You won!");
+}
 
-let computerTest = new Player("carl");
-let testResult = computerTest.computerGenerateRandomChoice()
-console.log(testResult)
+else if (player == "paper" & cpu == "rock"){
+    console.log("Yay, You won!");
+}
+
+else if (player == "paper" & cpu == "paper"){
+    console.log("It's a Tie!");
+}
+else if (player == "paper" & cpu == "scissors"){
+    console.log("Sorry, you lost!");
+}
+
+else if (player == "scissors"& cpu == "rock"){
+    console.log("Sorry, you lost!");
+}
+else if (player == "scissors" & cpu == "paper"){
+    console.log("Yay, you won!");
+}
+else if (player == "scissors" & cpu == "scissors"){
+    console.log("It's a Tie!");
+}
+else{
+     console.log("Please select again")
+}
