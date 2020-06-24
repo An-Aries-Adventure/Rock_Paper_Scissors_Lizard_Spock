@@ -4,18 +4,21 @@
 
 class Game{
     constructor(){
-        this.playerOne = new Player(name)
-        this.playerTwo = new Player(name)
+        this.playerOne = new Player(name);
+        // this.playerTwo = new Player(name);
+        this.playerTwo = null;
+        // this.botPlayer = new ComputerPlayer()
         this.choices = ["Rock", "Paper", "Scissors", "Lizard", "Spock"]
     
 
     }
 
-    runGame(){
+    runGame(){      // main method
         this.displayRules()
+        // determine game mode (instantiate playerTwo as corect player type)
 
 
-
+        this.playerTwo.chooseGesture(this.choices);
 
 
 
@@ -29,6 +32,10 @@ class Game{
         console.log("You and your oppentent will make a selection from the avaialable options.")
         console.log("The player that wins best of 3 rounds, Wins the Game!")
     }
+
+
+
+
 }
 
 class Player{
@@ -39,9 +46,8 @@ class Player{
 
     }
 
-    computerGenerateRandomChoice(){
-        let randomChoice = Math.floor(Math.random() * this.choices) +1;
-        return randomChoice
+    chooseGesture() {
+        // logic to allow human to choose gesture
     }
 
 
@@ -51,52 +57,98 @@ class Player{
 
 class ComputerPlayer extends Player{
     constructor(name){
+        this.name = "CPU"
+    }
 
+    chooseGesture(choices){
+        let randomChoice = Math.floor(Math.random() * choices.length) +1;
+        return randomChoice
     }
 }
 
 let gameCounter = 0
 
-let game = new Game()
-game.runGame()
+// let game = new Game()
+// game.runGame()
+
+let testComputerPlayer = new ComputerPlayer("CPU");
+let result = testComputerPlayer.chooseGesture();
 
 // let computerTest = new Player("carl");
 // let testResult = computerTest.computerGenerateRandomChoice()
 // console.log(testResult)
 
-
-if (player == "rock" & cpu == "rock"){
-    console.log("It's a Tie!");
-}
+pvcLogic(){
+    let gameResult
+        
+    if (playerChoice == "rock" & botPlayer == "rock"){
+        console.log("It's a Tie!");
+    }
     
-else if (player == "rock" & cpu == "paper"){
-    console.log("Sorry, you lost!");
-}
- 
-else if (player == "rock" & cpu == "scissors"){
-    console.log("Yay, You won!");
-}
+    else if (playerChoice == "rock" & botPlayer == "paper"){
+        console.log("Sorry, you lost!");
+        this.botPlayer.score++;
+    }
+    
+    else if (playerChoice == "rock" & botPlayer == "scissors" || botPlayer == "lizard"){
+        console.log("Yay, You won!");
+        this.playerOne.score++;
+    }
+    else if (playerChoice == "paper" & botPlayer == "rock" || botPlayer == "spock"){
+        console.log("Yay, You won!");
+        this.playerOne.score++;
+    }
 
-else if (player == "paper" & cpu == "rock"){
-    console.log("Yay, You won!");
-}
+    else if (playerChoice == "paper" & botPlayer == "paper"){
+        console.log("It's a Tie!");
+    }
+    else if (playerChoice== "paper" & botPlayer == "scissors"){
+        console.log("Sorry, you lost!");
+        this.botPlayer.score++;
+    }
 
-else if (player == "paper" & cpu == "paper"){
-    console.log("It's a Tie!");
-}
-else if (player == "paper" & cpu == "scissors"){
-    console.log("Sorry, you lost!");
-}
-
-else if (player == "scissors"& cpu == "rock"){
-    console.log("Sorry, you lost!");
-}
-else if (player == "scissors" & cpu == "paper"){
-    console.log("Yay, you won!");
-}
-else if (player == "scissors" & cpu == "scissors"){
-    console.log("It's a Tie!");
-}
-else{
-     console.log("Please select again")
+    else if (playerChoice == "scissors"& botPlayer == "rock"){
+        console.log("Sorry, you lost!");
+        this.botPlayer.score++;
+    }
+    else if (playerChoice == "scissors" & botPlayer == "paper"){
+        console.log("Yay, you won!");
+        this.playerOne.score++;
+    }
+    else if (playerChoice == "scissors" & botPlayer == "scissors"){
+        console.log("It's a Tie!");
+    }
+    else if (playerChoice == "lizard" & botPlayer == "paper" || botPlayer == "spock")
+        console.log("Yay, you won!");
+        this.playerOne.score++;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    else{
+        console.log("Please select again")
+    }
+    
+    return gameResult
 }
