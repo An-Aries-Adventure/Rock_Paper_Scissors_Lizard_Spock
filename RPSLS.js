@@ -16,17 +16,21 @@ class Game{
     runGame(){      // main method
         this.displayRules();
         this.numberOfPlayers();
-        while(this.playerOne.score < 3 || this.playerTwo.score < 3){
+        while(this.playerOne.score < 3 && this.playerTwo.score < 3){
+           
             let playerOneChoice = this.playerOne.chooseGesture(); 
             let playerTwoChoice = this.playerTwo.chooseGesture(this.choices);
             this.logic(playerOneChoice, playerTwoChoice);
         }
-        if (this.playerOne.score = 3){
-            alert("Congratulations" + this.playerOne + "You are the winner")
+
+            if (this.playerOne.score == 3){
+                alert("Congratulations" + this.playerOne + "You are the winner")
+            }
+            else if (this.playerTwo.score == 3){
+                alert("Contratulations" + this.playerTwo + "You are the winner")
+            }
         }
-        else if (this.playerTwo.score = 3){
-            alert("Contratulations" + this.playerTwo + "You are the winner")
-        }
+    }
 
 
         // determine game mode (instantiate playerTwo as corect player type)
@@ -38,8 +42,8 @@ class Game{
 
 
 
-    }
-
+    
+    
 
     displayRules(){
         console.log("Welcome to Rock, Paper, Scissors, Lizard, Spock.");
@@ -55,109 +59,72 @@ class Game{
         // let playerChoice = this.playerOne.chooseGesture()
         // let botPlayer = this.playerTwo.chooseGesture()
 
-    if (playerOneChoice == "rock" & playerTwoChoice == "rock"){
-        alert("It's a Tie!");
-    }
-    else if (playerOneChoice == "rock" & playerTwoChoice == "paper" || playerTwoChoice == "spock"){
-        alert("Sorry, you lost!");
-        this.playerTwo.score++;
-    }
-    else if (playerOneChoice == "rock" & playerTwoChoice == "scissors" || playerTwoChoice == "lizard"){
-        alert("Yay, You won!");
-        this.playerOne.score++;
-    }
-    else if (playerOneChoice == "paper" & playerTwoChoice == "rock" || playerTwoChoice == "spock"){
-        alert("Yay, You won!");
-        this.playerOne.score++;
-    }
-    else if (playerOneChoice == "paper" & playerTwoChoice == "paper"){
-        alert("It's a Tie!");
-    }
-    else if (playerOneChoice == "paper" & playerTwoChoice == "scissors" || playerTwoChoice == "lizard"){
-        alert("Sorry, you lost!");
-        this.playerTwo.score++;
-    }
-    else if (playerOneChoice == "scissors"& playerTwoChoice == "rock" || playerTwoChoice == "spock"){
-        alert("Sorry, you lost!");
-        this.playerTwo.score++;
-    }
-    else if (playerOneChoice == "scissors" & playerTwoChoice == "paper" || playerTwoChoice == "lizard"){
-        alert("Yay, you won!");
-        this.playerOne.score++;
-    }
-    else if (playerOneChoice == "scissors" & playerTwoChoice == "scissors"){
-        alert("It's a Tie!");
-    }
-    else if (playerOneChoice == "lizard" & playerTwoChoice == "paper" || playerTwoChoice == "spock"){
-        alert("Yay, you won!");
-        this.playerOne.score++;
-    }
-    else if (playerOneChoice == "lizard"& playerTwoChoice == "rock" || playerTwoChoice == "scissors"){
-        alert("Sorry, you lost!");
-        this.playerTwo.score++;
-    }
-    else if (playerOneChoice == "lizard" & playerTwoChoice == "lizard"){
-        alert("It's a Tie!");
-    }
-    else if (playerOneChoice == "spock" & playerTwoChoice == "rock" || playerTwoChoice == "scissors"){
-        alert("Yay, you won!");
-        this.playerOne.score++;
-    }
-    else if (playerOneChoice == "spock"& playerTwoChoice == "paper" || playerTwoChoice == "lizard"){
-        alert("Sorry, you lost!");
-        this.playerTwo.score++;
-    }
-    else if (playerOneChoice == "spock" & playerTwoChoice == "spock"){
-        alert("It's a Tie!");
-    }
-     
-    else{
-        console.log("Please select again");
+        if (playerOneChoice == playerTwoChoice){
+            alert("It's a Tie!");
+        }
+        else if (playerOneChoice == "rock" && playerTwoChoice == "paper" || playerTwoChoice == "spock"){
+            alert("Sorry, you lost!");
+            this.playerTwo.score++;
+        }
+        else if (playerOneChoice == "rock" && playerTwoChoice == "scissors" || playerTwoChoice == "lizard"){
+            alert("Yay, You won!");
+            this.playerOne.score++;
+        }
+        else if (playerOneChoice == "paper" && playerTwoChoice == "rock" || playerTwoChoice == "spock"){
+            alert("Yay, You won!");
+            this.playerOne.score++;
+        }
+        else if (playerOneChoice == "paper" && playerTwoChoice == "scissors" || playerTwoChoice == "lizard"){
+            alert("Sorry, you lost!");
+            this.playerTwo.score++;
+        }
+        else if (playerOneChoice == "scissors" && playerTwoChoice == "rock" || playerTwoChoice == "spock"){
+            alert("Sorry, you lost!");
+            this.playerTwo.score++;
+        }
+        else if (playerOneChoice == "scissors" && playerTwoChoice == "paper" || playerTwoChoice == "lizard"){
+            alert("Yay, you won!");
+            this.playerOne.score++;
+        }
+        else if (playerOneChoice == "lizard" && playerTwoChoice == "paper" || playerTwoChoice == "spock"){
+            alert("Yay, you won!");
+            this.playerOne.score++;
+        }
+        else if (playerOneChoice == "lizard" && playerTwoChoice == "rock" || playerTwoChoice == "scissors"){
+            alert("Sorry, you lost!");
+            this.playerTwo.score++;
+        }
+        else if (playerOneChoice == "spock" && playerTwoChoice == "rock" || playerTwoChoice == "scissors"){
+            alert("Yay, you won!");
+            this.playerOne.score++;
+        }
+        else if (playerOneChoice == "spock" && playerTwoChoice == "paper" || playerTwoChoice == "lizard"){
+            alert("Sorry, you lost!");
+            this.playerTwo.score++;
+        }
+        else{
+            console.log("Please select again");
+        }
     }
 
-    return gameResult;
-    }
-
-
-    scoreBoard(){
-        //for (i = 0; i  )
-    }
 
 
 
     numberOfPlayers(){
-        let chooseNumberOfPlayers = prompt("Press 1 to play against another player. Press 2 to play against the computer: ")
+        let name = prompt("Please choose a name:")
+        let chooseNumberOfPlayers = prompt("Hello "+ name + " Press 1 to play against another player. Press 2 to play against the computer: ")
         switch (chooseNumberOfPlayers){
             case "1":
-                let userInput = prompt("what is the name of player two? ");
+                let userInput = prompt("What is the name of player two? ");
                 this.playerTwo = new Player(userInput);
-                break;
+            break;
             case "2":
                 this.playerTwo = new ComputerPlayer();
-                break;
+            break;
         }
-
     }
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
 
 
 
