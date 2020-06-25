@@ -21,15 +21,15 @@ class Game{
             let playerOneChoice = this.playerOne.chooseGesture(); 
             let playerTwoChoice = this.playerTwo.chooseGesture(this.choices);
             this.logic(playerOneChoice, playerTwoChoice);
+            
+        }
+        if (this.playerOne.score == 3){
+            alert("Congratulations" + this.playerOne + "You are the winner")
+        }
+        else if (this.playerTwo.score == 3){
+            alert("Contratulations" + this.playerTwo + "You are the winner")
         }
 
-            if (this.playerOne.score == 3){
-                alert("Congratulations" + this.playerOne + "You are the winner")
-            }
-            else if (this.playerTwo.score == 3){
-                alert("Contratulations" + this.playerTwo + "You are the winner")
-            }
-        }
     }
 
 
@@ -104,6 +104,7 @@ class Game{
         }
         else{
             console.log("Please select again");
+    
         }
     }
 
@@ -111,7 +112,7 @@ class Game{
 
 
     numberOfPlayers(){
-        let name = prompt("Please choose a name:")
+        let name = prompt("Please choose a name:");
         let chooseNumberOfPlayers = prompt("Hello "+ name + " Press 1 to play against another player. Press 2 to play against the computer: ")
         switch (chooseNumberOfPlayers){
             case "1":
@@ -123,9 +124,8 @@ class Game{
             break;
         }
     }
+
 }
-
-
 
 
 
@@ -142,6 +142,11 @@ class Player{
     chooseGesture() {
         let gesture = prompt("Please make a selection. Please choose: rock, paper, scissors, lizard, or spock? ");
         let playerChoice = gesture.toLocaleLowerCase()
+        for (i = 0; i < Game.choices.lengh; i++){
+            while (playerChoice !== Game.choices[i]){
+                gesture
+            }
+        }
         return playerChoice
     }
 }
