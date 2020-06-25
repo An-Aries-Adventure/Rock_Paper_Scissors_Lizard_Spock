@@ -141,9 +141,13 @@ class Player{
 
     chooseGesture() {
         let gesture = prompt("Please make a selection. Please choose: rock, paper, scissors, lizard, or spock? ");
+        let choiceOptions= ["rock", "paper", "scissors", "lizard", "spock"];
+        // let tryAgain = prompt("Please try again. Please choose: rock, paper, scissors, lizard, or spock?")
+        
+    
         let playerChoice = gesture.toLocaleLowerCase()
-        for (i = 0; i < Game.choices.lengh; i++){
-            while (playerChoice !== Game.choices[i]){
+        for (let i = 0; i < choiceOptions.length; i++){
+            while (playerChoice !== choiceOptions[i]){
                 gesture
             }
         }
