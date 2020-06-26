@@ -23,10 +23,10 @@ class Game{
             
         }
         if (this.playerOne.score == 3){
-            alert("Congratulations " + this.playerOne.name + " You are the winner");
+            alert("Congratulations " + this.playerOne.name + "! You are the winner");
         }
         else if (this.playerTwo.score == 3){
-            alert("Contratulations " + this.playerTwo.name + " You are the winner");
+            alert("Contratulations " + this.playerTwo.name + "! You are the winner");
         }
 
     }
@@ -57,11 +57,11 @@ class Game{
             this.playerTwo.score++;
         }
         else if (playerOneChoice == "rock" && playerTwoChoice == "scissors" || playerTwoChoice == "lizard"){
-            alert("Yay" + this.playerOne.name + ", you won! You chose " + playerOneChoice + " and " + this.playerTwo.name + " chose " + playerTwoChoice + ".");
+            alert("Yay " + this.playerOne.name + ", you won! You chose " + playerOneChoice + " and " + this.playerTwo.name + " chose " + playerTwoChoice + ".");
             this.playerOne.score++;
         }
         else if (playerOneChoice == "paper" && playerTwoChoice == "rock" || playerTwoChoice == "spock"){
-            alert("Yay" + this.playerOne.name + ", you won! You chose " + playerOneChoice + " and " + this.playerTwo.name + " chose " + playerTwoChoice + ".");
+            alert("Yay " + this.playerOne.name + ", you won! You chose " + playerOneChoice + " and " + this.playerTwo.name + " chose " + playerTwoChoice + ".");
             this.playerOne.score++;
         }
         else if (playerOneChoice == "paper" && playerTwoChoice == "scissors" || playerTwoChoice == "lizard"){
@@ -73,11 +73,11 @@ class Game{
             this.playerTwo.score++;
         }
         else if (playerOneChoice == "scissors" && playerTwoChoice == "paper" || playerTwoChoice == "lizard"){
-            alert("Yay" + this.playerOne.name + ", you won! You chose " + playerOneChoice + " and " + this.playerTwo.name + " chose " + playerTwoChoice + ".");
+            alert("Yay " + this.playerOne.name + ", you won! You chose " + playerOneChoice + " and " + this.playerTwo.name + " chose " + playerTwoChoice + ".");
             this.playerOne.score++;
         }
         else if (playerOneChoice == "lizard" && playerTwoChoice == "paper" || playerTwoChoice == "spock"){
-            alert("Yay" + this.playerOne.name + ", you won! You chose " + playerOneChoice + " and " + this.playerTwo.name + " chose " + playerTwoChoice + ".");
+            alert("Yay " + this.playerOne.name + ", you won! You chose " + playerOneChoice + " and " + this.playerTwo.name + " chose " + playerTwoChoice + ".");
             this.playerOne.score++;
         }
         else if (playerOneChoice == "lizard" && playerTwoChoice == "rock" || playerTwoChoice == "scissors"){
@@ -85,7 +85,7 @@ class Game{
             this.playerTwo.score++;
         }
         else if (playerOneChoice == "spock" && playerTwoChoice == "rock" || playerTwoChoice == "scissors"){
-            alert("Yay" + this.playerOne.name + ", you won! You chose " + playerOneChoice + " and " + this.playerTwo.name + " chose " + playerTwoChoice + ".");
+            alert("Yay " + this.playerOne.name + ", you won! You chose " + playerOneChoice + " and " + this.playerTwo.name + " chose " + playerTwoChoice + ".");
             this.playerOne.score++;
         }
         else if (playerOneChoice == "spock" && playerTwoChoice == "paper" || playerTwoChoice == "lizard"){
