@@ -4,13 +4,12 @@
 
 class Game{
     constructor(){
-        this.playerOne = new Player(name);
+        this.playerOne;// = new Player(name);
         // this.playerTwo = new Player(name);
-        this.playerTwo = null;
+        this.playerTwo;// = null;
         // this.botPlayer = new ComputerPlayer()
         this.choices = ["rock", "paper", "scissors", "lizard", "spock"];
-    
-
+        
     }
 
     runGame(){      // main method
@@ -24,10 +23,10 @@ class Game{
             
         }
         if (this.playerOne.score == 3){
-            alert("Congratulations " + this.numberOfPlayers() + " You are the winner")
+            alert("Congratulations " + this.playerOne.name + " You are the winner");
         }
         else if (this.playerTwo.score == 3){
-            alert("Contratulations " + this.playerTwo.name + " You are the winner")
+            alert("Contratulations " + this.playerTwo.name + " You are the winner");
         }
 
     }
@@ -39,7 +38,7 @@ class Game{
     displayRules(){
         console.log("Welcome to Rock, Paper, Scissors, Lizard, Spock.");
         console.log("You and your oppentent will make a selection from the avaialable options.");
-        console.log("The player that wins best of 3 rounds, Wins the Game!");
+        console.log("The player that wins 3 rounds first, Wins the Game!");
     }
 
 
@@ -51,46 +50,46 @@ class Game{
         // let botPlayer = this.playerTwo.chooseGesture()
 
         if (playerOneChoice == playerTwoChoice){
-            alert("It's a Tie!");
+            alert("It's a Tie! You each chose " + playerOneChoice);
         }
         else if (playerOneChoice == "rock" && playerTwoChoice == "paper" || playerTwoChoice == "spock"){
-            alert("Sorry, you lost!");
+            alert("Sorry " + this.playerOne.name + ", you lost! You chose " + playerOneChoice + " and " + this.playerTwo.name + " chose " + playerTwoChoice + ".");
             this.playerTwo.score++;
         }
         else if (playerOneChoice == "rock" && playerTwoChoice == "scissors" || playerTwoChoice == "lizard"){
-            alert("Yay, You won!");
+            alert("Yay" + this.playerOne.name + ", you won! You chose " + playerOneChoice + " and " + this.playerTwo.name + " chose " + playerTwoChoice + ".");
             this.playerOne.score++;
         }
         else if (playerOneChoice == "paper" && playerTwoChoice == "rock" || playerTwoChoice == "spock"){
-            alert("Yay, You won!");
+            alert("Yay" + this.playerOne.name + ", you won! You chose " + playerOneChoice + " and " + this.playerTwo.name + " chose " + playerTwoChoice + ".");
             this.playerOne.score++;
         }
         else if (playerOneChoice == "paper" && playerTwoChoice == "scissors" || playerTwoChoice == "lizard"){
-            alert("Sorry, you lost!");
+            alert("Sorry " + this.playerOne.name + ", you lost! You chose " + playerOneChoice + " and " + this.playerTwo.name + " chose " + playerTwoChoice + ".");
             this.playerTwo.score++;
         }
         else if (playerOneChoice == "scissors" && playerTwoChoice == "rock" || playerTwoChoice == "spock"){
-            alert("Sorry, you lost!");
+            alert("Sorry " + this.playerOne.name + ", you lost! You chose " + playerOneChoice + " and " + this.playerTwo.name + " chose " + playerTwoChoice + ".");
             this.playerTwo.score++;
         }
         else if (playerOneChoice == "scissors" && playerTwoChoice == "paper" || playerTwoChoice == "lizard"){
-            alert("Yay, you won!");
+            alert("Yay" + this.playerOne.name + ", you won! You chose " + playerOneChoice + " and " + this.playerTwo.name + " chose " + playerTwoChoice + ".");
             this.playerOne.score++;
         }
         else if (playerOneChoice == "lizard" && playerTwoChoice == "paper" || playerTwoChoice == "spock"){
-            alert("Yay, you won!");
+            alert("Yay" + this.playerOne.name + ", you won! You chose " + playerOneChoice + " and " + this.playerTwo.name + " chose " + playerTwoChoice + ".");
             this.playerOne.score++;
         }
         else if (playerOneChoice == "lizard" && playerTwoChoice == "rock" || playerTwoChoice == "scissors"){
-            alert("Sorry, you lost!");
+            alert("Sorry " + this.playerOne.name + ", you lost! You chose " + playerOneChoice + " and " + this.playerTwo.name + " chose " + playerTwoChoice + ".");
             this.playerTwo.score++;
         }
         else if (playerOneChoice == "spock" && playerTwoChoice == "rock" || playerTwoChoice == "scissors"){
-            alert("Yay, you won!");
+            alert("Yay" + this.playerOne.name + ", you won! You chose " + playerOneChoice + " and " + this.playerTwo.name + " chose " + playerTwoChoice + ".");
             this.playerOne.score++;
         }
         else if (playerOneChoice == "spock" && playerTwoChoice == "paper" || playerTwoChoice == "lizard"){
-            alert("Sorry, you lost!");
+            alert("Sorry " + this.playerOne.name + ", you lost! You chose " + playerOneChoice + " and " + this.playerTwo.name + " chose " + playerTwoChoice + ".");
             this.playerTwo.score++;
         }
         else{
@@ -100,16 +99,16 @@ class Game{
     }
 
 
-
+    
 
     numberOfPlayers(){
         let playerOneName = prompt("Please choose a name:");
+        this.playerOne = new Player(playerOneName);
         let chooseNumberOfPlayers = prompt("Hello "+ playerOneName + " Press 1 to play against another player. Press 2 to play against the computer: ")
         switch (chooseNumberOfPlayers){
             case "1":
                 let userInput = prompt("What is the name of player two? ");
                 this.playerTwo = new Player(userInput);
-                return playerOneName
             break;
             case "2":
                 this.playerTwo = new ComputerPlayer();
@@ -132,22 +131,19 @@ class Player{
     }
 
     chooseGesture() {
-        let gesture = prompt("Please make a selection. Please choose: rock, paper, scissors, lizard, or spock? ");
         let choiceOptions = ["rock", "paper", "scissors", "lizard", "spock"];
         // let tryAgain = prompt("Please try again. Please choose: rock, paper, scissors, lizard, or spock?")
-        let playerChoice = gesture.toLocaleLowerCase()
-        return playerChoice
-        // while (true){
-        //         for (let i = 0; i < choiceOptions.length; i++){
-        //             if(playerChoice == choiceOptions[i]){
-        //                 return playerChoice
-        //             }
-        //             else{
-        //                 this.chooseGesture()
-        //             }
+        
+        while (true){
+            let gesture = prompt("Please make a selection. Please choose: rock, paper, scissors, lizard, or spock? ");
+            let playerChoice = gesture.toLocaleLowerCase();
+                for (let i = 0; i <= choiceOptions.length; i++){
+                    if(playerChoice == choiceOptions[i]){
+                        return playerChoice;
+                    }
 
-        //         }
-        //     }
+                }
+            }
     }
 }
 
@@ -158,14 +154,14 @@ class ComputerPlayer extends Player{
     }
 
     chooseGesture(choices){
-        let randomChoice = choices[Math.floor(Math.random()* choices.length)]
-        return randomChoice
+        let randomChoice = choices[Math.floor(Math.random()* choices.length)];
+        return randomChoice;
     }
 }
 
 // let gameCounter = 0
 function BeginGame(){
-    let game = new Game()
+    let game = new Game();
     game.runGame();
 }
 
