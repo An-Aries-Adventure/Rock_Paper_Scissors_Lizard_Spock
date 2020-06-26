@@ -24,26 +24,17 @@ class Game{
             
         }
         if (this.playerOne.score == 3){
-            alert("Congratulations" + this.playerOne + "You are the winner")
+            alert("Congratulations " + this.numberOfPlayers() + " You are the winner")
         }
         else if (this.playerTwo.score == 3){
-            alert("Contratulations" + this.playerTwo + "You are the winner")
+            alert("Contratulations " + this.playerTwo.name + " You are the winner")
         }
 
     }
 
-
         // determine game mode (instantiate playerTwo as corect player type)
-
-
         // this.playerTwo.chooseGesture(this.choices);
 
-
-
-
-
-    
-    
 
     displayRules(){
         console.log("Welcome to Rock, Paper, Scissors, Lizard, Spock.");
@@ -112,12 +103,13 @@ class Game{
 
 
     numberOfPlayers(){
-        let name = prompt("Please choose a name:");
-        let chooseNumberOfPlayers = prompt("Hello "+ name + " Press 1 to play against another player. Press 2 to play against the computer: ")
+        let playerOneName = prompt("Please choose a name:");
+        let chooseNumberOfPlayers = prompt("Hello "+ playerOneName + " Press 1 to play against another player. Press 2 to play against the computer: ")
         switch (chooseNumberOfPlayers){
             case "1":
                 let userInput = prompt("What is the name of player two? ");
                 this.playerTwo = new Player(userInput);
+                return playerOneName
             break;
             case "2":
                 this.playerTwo = new ComputerPlayer();
@@ -141,17 +133,21 @@ class Player{
 
     chooseGesture() {
         let gesture = prompt("Please make a selection. Please choose: rock, paper, scissors, lizard, or spock? ");
-        let choiceOptions= ["rock", "paper", "scissors", "lizard", "spock"];
+        let choiceOptions = ["rock", "paper", "scissors", "lizard", "spock"];
         // let tryAgain = prompt("Please try again. Please choose: rock, paper, scissors, lizard, or spock?")
-        
-    
         let playerChoice = gesture.toLocaleLowerCase()
-        for (let i = 0; i < choiceOptions.length; i++){
-            while (playerChoice !== choiceOptions[i]){
-                gesture
-            }
-        }
         return playerChoice
+        // while (true){
+        //         for (let i = 0; i < choiceOptions.length; i++){
+        //             if(playerChoice == choiceOptions[i]){
+        //                 return playerChoice
+        //             }
+        //             else{
+        //                 this.chooseGesture()
+        //             }
+
+        //         }
+        //     }
     }
 }
 
